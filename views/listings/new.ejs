@@ -1,0 +1,59 @@
+<% layout('layout/boilerplate') -%> 
+<body>
+    <div class="row">
+        <div class="col-8 offset-2">
+            <br><br>
+    <h3>Create a New Listing</h3>
+    <form action="/listings" method="post" novalidate class="needs-validation" enctype="multipart/form-data">
+        <div>
+            <label for="title" class="form-label">Title</label>
+            <input required type="text" name="listing[title]" placeholder="enter title" class="form-control">
+            <div class="valid-feedback">
+              Looks good!
+            </div><br>
+        </div>
+        <div>
+            <label for="description" class="form-label">description</label>
+            <textarea required class="form-control" name="listing[description]"></textarea>
+            <div class="valid-feedback">
+              Looks good!
+            </div><br>
+        </div>
+        <div>
+            <label for="image" class="form-label">Upload Listing Image</label>
+            <input type="file" class="form-control" name="listing[image][url]">
+            <div class="valid-feedback">
+              Looks good!
+            </div><br>
+        </div>
+        <div class="row">
+        <div class="col-md-4">
+            <label for="price" class="form-label">Price</label>
+            <input type="number" class="form-control" name="listing[price]" placeholder="1200">
+            <div class="invalid-feedback">
+                Please choose a valid Price.
+            </div><br>
+        </div>
+        <div class="col-md-8">
+            <label for="country" class="form-label">Country</label>
+            <input required type="text" class="form-control" name="listing[country]" placeholder="India">
+            <div class="invalid-feedback">
+                Please choose a valid Country name.
+            </div><br>
+        </div>
+        </div>
+        <div>
+            <label for="location" class="form-label">Location</label>
+            <input required type="text" class="form-control" name="listing[location]" placeholder="Jaipur">
+            <div class="invalid-feedback">
+                Please choose a valid Location.
+            </div><br>
+        </div>
+        <button class="btn btn-dark add-button">ADD</button>
+        <br><br>
+    </form>
+    </div>
+    </div>
+    <script src="/js/nav.js"></script>
+</body>
+</html>

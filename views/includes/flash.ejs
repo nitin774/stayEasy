@@ -1,0 +1,35 @@
+<% if(success && success.length) { %>
+<div class="alert alert-success alert-dismissible fade show position-fixed start-50 translate-middle-x mt-5" role="alert" style="z-index: 2000; top: 80px; max-width: 90%; width: 600px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);" data-auto-dismiss="5000">
+    <div class="d-flex align-items-center">
+        <i class="bi bi-check-circle-fill me-2"></i>
+        <span><%= success[0] %></span>
+        <button type="button" class="btn-close ms-auto" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+</div>
+<% } %>
+
+<% if(error && error.length) { %>
+<div class="alert alert-danger alert-dismissible fade show position-fixed start-50 translate-middle-x mt-5" role="alert" style="z-index: 2000; top: 80px; max-width: 90%; width: 600px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);" data-auto-dismiss="7000">
+    <div class="d-flex align-items-center">
+        <i class="bi bi-exclamation-triangle-fill me-2"></i>
+        <span><%= error[0] %></span>
+        <button type="button" class="btn-close ms-auto" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+</div>
+<% } %>
+
+<script>
+// Auto-dismiss flash messages
+document.addEventListener('DOMContentLoaded', function() {
+    const alerts = document.querySelectorAll('.alert[data-auto-dismiss]');
+    alerts.forEach(alert => {
+        const dismissTime = parseInt(alert.getAttribute('data-auto-dismiss'));
+        setTimeout(() => {
+            if (alert && alert.parentNode) {
+                const bsAlert = new bootstrap.Alert(alert);
+                bsAlert.close();
+            }
+        }, dismissTime);
+    });
+});
+</script>

@@ -1,0 +1,44 @@
+<header class="topbar">
+   <div class="container topbar-inner px-3 px-md-4">
+     <a class="logo" href="/listings">
+        <i class="fa-brands fa-airbnb icon"></i>
+       <span>stayEasy</span>
+     </a>
+
+  <div class="search d-none d-md-flex">
+    <div class="segments">
+      <button type="button" class="segment">Anywhere</button>
+      <div class="divider"></div>
+      <button type="button" class="segment">Any week</button>
+      <div class="divider"></div>
+      <button type="button" class="segment muted">Add guests</button>
+    </div>
+
+    <!-- ✅ Add name="location" -->
+    <input type="text" class="search-input" name="location" placeholder="Search destinations..." />
+    <a class="search-btn" aria-label="Search"><i class="bi bi-search"></i></a>
+    <button type="submit" class="search-close-btn" aria-label="Search">
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </button>
+  </div>
+
+    <div class="actions">
+      <a href="/listings/new" class="host">Airbnb your home</a>
+      <button class="icon-btn" aria-label="Language"><i class="bi bi-globe"></i></button>
+      <div class="menu-user">
+        <i class="bi bi-list menu-trigger" aria-hidden="true"></i>
+        <i class="bi bi-person-circle" aria-hidden="true"></i>
+        <div class="user-dropdown" role="menu" aria-label="User menu">
+          <% if(!currentUser) { %>
+          <a class="nav-link active" href="/signup"><b>Sign up</b></a>
+          <a class="nav-link" href="/login"><b>Log in</b></a>
+          <% } %>
+          <% if(currentUser) { %>
+          <a class="nav-link" href="/logout">Log out</a>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="/js/nav.js"></script>
+</header>
