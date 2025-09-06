@@ -78,6 +78,11 @@ app.use((req, res, next)=>{
     next();
 })
 
+// Root route
+app.get('/', (req, res) => {
+    res.redirect('/listings');
+});
+
 app.use('/listings', listingsRouter);
 app.use('/listings/:id/reviews',reviewsRouter);
 app.use('/', userRouter);
@@ -96,5 +101,5 @@ app.use((err, req, res, next) => {
 // })
 
 app.listen(port, () => {
-    console.log('🚀 Server running on port 3000');
+    console.log(`🚀 Server running on port ${port}`);
 });
