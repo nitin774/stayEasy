@@ -100,6 +100,20 @@ app.use((err, req, res, next) => {
 //     res.send(registerUser);
 // })
 
-app.listen(port, () => {
+// Configure server timeouts for Render
+const server = app.listen(port, '0.0.0.0', () => {
     console.log(`🚀 Server running on port ${port}`);
+    console.log(`📱 Mobile & Web optimized for Render deployment`);
+});
+
+// Increase timeouts for Render deployment
+server.keepAliveTimeout = 120000; // 2 minutes
+server.headersTimeout = 120000;   // 2 minutes
+
+// Handle graceful shutdown
+process.on('SIGTERM', () => {
+    console.log('SIGTERM received, shutting down gracefully');
+    server.close(() => {
+        console.log('Process terminated');
+    });
 });
