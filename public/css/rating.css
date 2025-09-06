@@ -189,6 +189,68 @@
   }
 }
 
+/* ===== MOBILE RATING IMPROVEMENTS ===== */
+
+/* Mobile rating adjustments */
+@media (max-width: 768px) {
+  .starability-slot {
+    width: 120px;
+    min-height: 50px;
+  }
+  
+  .starability-slot > label {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .starability-result {
+    width: 120px;
+    height: 24px;
+  }
+  
+  .starability-result[data-rating="5"]::after { width: 120px; }
+  .starability-result[data-rating="4"]::after { width: 96px; }
+  .starability-result[data-rating="3"]::after { width: 72px; }
+  .starability-result[data-rating="2"]::after { width: 48px; }
+  .starability-result[data-rating="1"]::after { width: 24px; }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 576px) {
+  .starability-slot {
+    width: 100px;
+    min-height: 40px;
+  }
+  
+  .starability-slot > label {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .starability-result {
+    width: 100px;
+    height: 20px;
+  }
+  
+  .starability-result[data-rating="5"]::after { width: 100px; }
+  .starability-result[data-rating="4"]::after { width: 80px; }
+  .starability-result[data-rating="3"]::after { width: 60px; }
+  .starability-result[data-rating="2"]::after { width: 40px; }
+  .starability-result[data-rating="1"]::after { width: 20px; }
+}
+
+/* Touch-friendly rating */
+@media (hover: none) and (pointer: coarse) {
+  .starability-slot > label {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  .starability-slot {
+    min-height: 44px;
+  }
+}
+
 .starability-slot > input:checked ~ label,
 .starability-slot > input:hover ~ label,
 .starability-slot > input:focus ~ label {
