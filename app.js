@@ -16,6 +16,7 @@ const passport = require('passport');
 const localStrategy = require('passport-local');
 const User = require('./models/user.js');
 const userRouter = require('./routes/user.js');
+const port = process.env.PORT || 4000;
 
      // await mongoose.connect('mongodb://127.0.0.1:27017/wanderlust');
 
@@ -93,8 +94,6 @@ app.use((err, req, res, next) => {
 //     let registerUser = await User.register(fakeUser, 'hello');
 //     res.send(registerUser);
 // })
-
-const port = process.env.PORT || 4000
 
 app.listen(port, () => {
     console.log('🚀 Server running on port 3000');
