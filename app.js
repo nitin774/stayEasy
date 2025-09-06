@@ -94,6 +94,8 @@ app.use((err, req, res, next) => {
 //     res.send(registerUser);
 // })
 
-app.listen(3000, () => {
+PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
     console.log('🚀 Server running on port 3000');
 });
